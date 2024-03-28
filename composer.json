@@ -1,0 +1,48 @@
+{
+    "name": "skynettechnologies/all-in-one-accessibility",
+    "description": "Quick Web Accessibility Implementation with All In One Accessibility!",
+    "type": "statamic-addon",
+    "keywords": [
+        "statamic",
+        "framework",
+        "laravel",
+        "accessibility",
+        "wcag",
+        "ada",
+        "All",
+        "in",
+        "One",
+        "Accessibility"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Skynettechnologies\\AllInOneAccessibility\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rajesh Bhimani",
+            "email": "developer3@skynettechnologies.com",
+            "role": "Developer",
+            "homepage": "https://skynettechnologies.com"
+        }
+    ],
+    "support": {
+        "email": "hello@skynettechnologies.com"        
+    },
+    "require": {
+        "statamic/cms": "^4.0"
+    },
+    "extra": {
+        "statamic": {
+            "name": "All In One Accessibility",
+            "description": "Quick Web Accessibility Implementation with All In One Accessibility!"
+        },
+        "laravel": {
+            "providers": [
+                "Skynettechnologies\\AllInOneAccessibility\\ServiceProvider"
+            ]
+        }
+    },
+    "license": "MIT"
+}
