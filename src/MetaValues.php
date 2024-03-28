@@ -9,7 +9,7 @@ use Statamic\Facades\File;
 use Statamic\Facades\YAML;
 
 class MetaValues {
-    public const NAMESPACE = "skynettechnologies/all-in-one-accessibility";
+    public const NAMESPACE = "skynettechnologies/statamic-all-in-one-accessibility";
 
     public const PATH_STYLESHEET = "vendor/" . self::NAMESPACE . "/css/";
     public const PATH_JAVASCRIPT = "vendor/" . self::NAMESPACE . "/js/";

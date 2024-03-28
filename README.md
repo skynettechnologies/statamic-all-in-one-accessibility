@@ -126,7 +126,7 @@ Following features can be added as an addon
 You can search for this addon in the `Tools > Addons` section of the Statamic control panel and click **install**, or run the following command from your project root:
 
 ``` bash
-composer require skynettechnologies/all-in-one-accessibility
+composer require skynettechnologies/statamic-all-in-one-accessibility
 ```
 
 ### Configuration

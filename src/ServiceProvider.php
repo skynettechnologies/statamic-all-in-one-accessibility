@@ -20,12 +20,12 @@ class ServiceProvider extends AddonServiceProvider
 		Statamic::booted(function () {
 			$this
 				->bootNavigation();
-			$this->loadViewsFrom(__DIR__ . '/../resources/views', 'skynettechnologies/all-in-one-accessibility');
+			$this->loadViewsFrom(__DIR__ . '/../resources/views', 'skynettechnologies/statamic-all-in-one-accessibility');
 		});
 
 		Statamic::afterInstalled(function ($command) {
 			// Publish default settings, to make the first time experience easier
-			$command->call('vendor:publish', ['--tag' => 'skynettechnologies/all-in-one-accessibility-settings']);
+			$command->call('vendor:publish', ['--tag' => 'skynettechnologies/statamic-all-in-one-accessibility-settings']);
 		});
 	}
 
@@ -36,8 +36,8 @@ class ServiceProvider extends AddonServiceProvider
 
 			$nav
 				->create('All in One Accessibility™')
-				->can('skynettechnologies/all-in-one-accessibility.all_in_one_accessibility_general')
-				->route('skynettechnologies/all-in-one-accessibility.settings')
+				->can('skynettechnologies/statamic-all-in-one-accessibility.all_in_one_accessibility_general')
+				->route('skynettechnologies/statamic-all-in-one-accessibility.settings')
 				->section('Tools')
 				->icon($cookieIconData ?? 'alert');
 		});

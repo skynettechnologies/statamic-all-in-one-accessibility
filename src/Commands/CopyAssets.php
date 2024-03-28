@@ -32,7 +32,7 @@ class CopyAssets extends Command
      */
     public function handle(Manifest $manifest)
     {
-        File::copyDirectory( base_path("vendor/skynettechnologies/all-in-one-accessibility/dist"), base_path("public/skynettechnologies/all-in-one-accessibility") );
+        File::copyDirectory( base_path("vendor/skynettechnologies/statamic-all-in-one-accessibility/dist"), base_path("public/skynettechnologies/statamic-all-in-one-accessibility") );
         $this->info('Assets copied successfully.');
     }
 }

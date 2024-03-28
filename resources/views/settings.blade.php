@@ -78,8 +78,8 @@ if ($curl) {
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => array('domain' => $_SERVER['SERVER_NAME']),
-//            CURLOPT_POSTFIELDS => array('domain' => "http://xoops.localhost.com/"),
+//            CURLOPT_POSTFIELDS => array('domain' => $_SERVER['SERVER_NAME']),
+           CURLOPT_POSTFIELDS => array('domain' => "https://statamic.skynettechnologies.us/"),
         )
     );
     $response = curl_exec($curl);
@@ -119,6 +119,10 @@ if ($curl) {
         </div>
     @elseif ($status == 2)
         <img src="https://ada.skynettechnologies.us/public/trial-assets/images/all-in-one-accessibility-logo.svg" alt="All in One Accessibility - Skynet Technologies">
+        <br>
+        <div>
+            <a target="_blank" class="aioa-cancel-button"  href="<?php echo $iframe_url;?>">Manage Subscription</a>
+        </div>
         <br>
         <iframe id="iframe-settings" src="{{ $iframe_url }}" style="width: 100%;"></iframe>
     @else

@@ -36,6 +36,6 @@ class SettingsController extends CpController
             'iframe_url' => 'https://ada.skynettechnologies.us/check-website',
         ];
 
-        return view('skynettechnologies/all-in-one-accessibility::settings', $data);
+        return view('skynettechnologies/statamic-all-in-one-accessibility::settings', $data);
     }
 }
