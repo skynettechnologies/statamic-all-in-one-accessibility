@@ -78,8 +78,8 @@ if ($curl) {
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-//            CURLOPT_POSTFIELDS => array('domain' => $_SERVER['SERVER_NAME']),
-           CURLOPT_POSTFIELDS => array('domain' => "https://statamic.skynettechnologies.us/"),
+            CURLOPT_POSTFIELDS => array('domain' => $_SERVER['SERVER_NAME']),
+//           CURLOPT_POSTFIELDS => array('domain' => "https://statamic.skynettechnologies.us/"),
         )
     );
     $response = curl_exec($curl);
