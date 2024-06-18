@@ -1,5 +1,4 @@
 # All in One Accessibility™: Statamic Addon
-# All in One Accessibility™
 
 ## Description
 [All in One Accessibility](https://www.skynettechnologies.com/all-in-one-accessibility) AI Widget Supports 140 Languages and includes 70+ features. Screen Reader, Talk & Type, Voice Navigation, Dictionary, Virtual Keyboard, Accessibility Profiles, Sign language Libras (Brazilian Portuguese) Custom Widget Color, Icon size, Position, Talk & Type, GA4 Tracking and custom accessibility statement link are some of the top features.
