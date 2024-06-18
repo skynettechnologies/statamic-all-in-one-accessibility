@@ -54,17 +54,17 @@ https://statamic.skynettechnologies.us/
 
 ## Screenshots
 
-![App Screenshot](/images/ScreenShot 1.jpg)
+![App Screenshot](images/ScreenShot 1.jpg)
 
-![App Screenshot](/images/ScreenShot 2.jpg)
+![App Screenshot](images/ScreenShot 2.jpg)
 
-![App Screenshot](/images/ScreenShot 3.jpg)
+![App Screenshot](images/ScreenShot 3.jpg)
 
-![App Screenshot](/images/ScreenShot 4.jpg)
+![App Screenshot](images/ScreenShot 4.jpg)
 
-![App Screenshot](/images/ScreenShot 5.jpg)
+![App Screenshot](images/ScreenShot 5.jpg)
 
-![App Screenshot](/images/ScreenShot 6.jpg)
+![App Screenshot](images/ScreenShot 6.jpg)
 ## Video
 
 [![All in One Accessibility](https://img.youtube.com/vi/czwC0PKIqkc/0.jpg)](https://www.youtube.com/watch?v=czwC0PKIqkc)
