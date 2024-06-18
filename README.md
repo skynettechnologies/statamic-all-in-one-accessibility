@@ -1,5 +1,7 @@
 # All in One Accessibility™: Statamic Addon
+# All in One Accessibility™
 
+## Description
 [All in One Accessibility](https://www.skynettechnologies.com/all-in-one-accessibility) AI Widget Supports 140 Languages and includes 70+ features. Screen Reader, Talk & Type, Voice Navigation, Dictionary, Virtual Keyboard, Accessibility Profiles, Sign language Libras (Brazilian Portuguese) Custom Widget Color, Icon size, Position, Talk & Type, GA4 Tracking and custom accessibility statement link are some of the top features.
    
 Our AI automatically remediates images Alternative text and uses the accessibility interface which handles UI and design related adjustments. All in One Accessibility app enhances your website accessibility to people with hearing or vision impairments, motor impaired, color blind, dyslexia, cognitive & learning impairments, seizure and epileptic, and ADHD problems.
@@ -15,134 +17,54 @@ Following features can be added as an addon:
 - Live Website Translations
 - VPAT / ACR Report
 - Manual Accessibility Audit
+- Accessibility Monitor
 
-## Features
-#### Skip Links
-- Skip to Menu
-- Skip to Footer
-- Skip to Navigation
-- Open Accessibility Toolbar
+For more details/features, Please visit [All in One Accessibility](https://www.skynettechnologies.com/all-in-one-accessibility).
 
-#### Content Adjustments
-- Content Scaling
-- Readable Fonts
-- Highlight Title
-- Highlight Links
-- Text Magnifier
-- Adjust Font Sizing
-- Adjust Line Height
-- Adjust Letter Spacing
-- Align Center
-- Align Left
-- Align Right
+## Installation
 
-#### Color and Contrast Adjustments
-- High Contrast
+### Prerequisites
+- Statamic version ^4.0
 
-#### Orientation Adjustments
-- Hide Images (Text Only)
-- Miscellaneous
-- Accessibility Statement
-- Dynamic Application Color
-- Choose Application Trigger Button Position
-- Choose Application Position
-- Multi Language
+### Steps
 
-#### Supports 140+ languages
-- English(US)
-- Italian
-- French
-- German
-- Russian
-- Spanish
-- Finnish
-- Portuguese
-- Arab
-- Polish
-- Hungarian
-- Slovak
-- Japanese
-- Turkish
-- Greek
-- Latin
-- Hebrew
-- Bulgarian
-- Catalan
-- Chinese
-- Czech
-- Danish
-- Dutch
-- Hindi
-- Indonesian
-- Korean
-- Malay
-- Norwegian
-- Romanian
-- Slovenian
-- Swedish
-- Thai
-- Ukrainian
-- Vietnamese
-- Bengali
-- Lithuanian
-- Sinhala
-- Amharic
-- Hmong
-- Burmese
-- Latvian
-- Estonian
-- Serbian
-- Portuguese (Brazil)
-- Chinese Traditional
-- Croatian
-- Georgian
-- Hawaiian
-- Welsh
-- Cebuano
-- Samoan
-- Haitian Creole
-- Faroese
-- Montenegrin
-- Australian
-- Azeri
-- Basque
-- Canada
-- Filipino
-- Galician
-- Norwegian
-- Persian
-- Punjabi
-- Spanish (Mexico)
-- English(United Kingdom)
+You can install this addon with two ways.
 
+    1.   You can search for this addon in the `Tools > Addons` section of the Statamic control panel.
+    2.   click install.
 
-### How to Install
-
-You can search for this addon in the `Tools > Addons` section of the Statamic control panel and click **install**, or run the following command from your project root:
+or run the following command from your project root:
 
 ``` bash
 composer require skynettechnologies/statamic-all-in-one-accessibility
 ```
 
-### Configuration
-
+## Configuration
 To configure the widget, access the Control Panel and head to the All in One Accessibility™ menu in the dashboard. From there, you can register.
+
+## Usage
+
 Once you have registered the settings in the Control Panel, make sure to add the tag to any of the layouts of your website. The tag to use is:
 
->   {{ all_in_one_accessibility }}
+    {{ all_in_one_accessibility }}
+
+
+## Live Demo
+https://statamic.skynettechnologies.us/
 
 ## Screenshots
 
-![App Screenshot](https://www.skynettechnologies.com/sites/default/files/Screenshot-1.jpg?v=1)
+![App Screenshot](images/ScreenShot 1.jpg)
 
-![App Screenshot](https://www.skynettechnologies.com/sites/default/files/Screenshot-2.jpg?v=1)
+![App Screenshot](images/ScreenShot 2.jpg)
 
-![App Screenshot](https://www.skynettechnologies.com/sites/default/files/Screenshot-3.jpg?v=1)
+![App Screenshot](images/ScreenShot 3.jpg)
 
-![App Screenshot](https://www.skynettechnologies.com/sites/default/files/Screenshot-4.jpg?v=1)
+![App Screenshot](images/ScreenShot 4.jpg)
 
-![App Screenshot](https://www.skynettechnologies.com/sites/default/files/Screenshot-5.jpg?v=1)
+![App Screenshot](images/ScreenShot 5.jpg)
 
+![App Screenshot](images/ScreenShot 6.jpg)
 ## Video
 
 [![All in One Accessibility](https://img.youtube.com/vi/czwC0PKIqkc/0.jpg)](https://www.youtube.com/watch?v=czwC0PKIqkc)
@@ -165,7 +87,18 @@ Please visit our [support page](https://www.skynettechnologies.com/report-access
 Alternatively, you can send an email to our support team:
 [hello@skynettechnologies.com](mailto:hello@skynettechnologies.com)
 
+## Partnership Opportunities
+
+#### [Agency](https://www.skynettechnologies.com/agency-partners)
+
+Partner with us as an agency to provide comprehensive accessibility solutions to your clients. Get access to exclusive resources, training, and support to help you implement and manage accessibility features effectively.
+
+#### [Affiliate](https://www.skynettechnologies.com/affiliate-partner)
+
+Join our affiliate program and earn commissions by promoting All in One Accessibility™. Share our Widget with your network and help businesses improve their website accessibility while generating revenue.
+
+For more details, Please visit [Partnership Opportunities](https://www.skynettechnologies.com/partner-program)
+
 ## About
 
 This addon is developed and maintained by [Skynet Technologies USA LLC](https://www.skynettechnologies.com)
-
