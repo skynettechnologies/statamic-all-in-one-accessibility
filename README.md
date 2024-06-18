@@ -54,7 +54,7 @@ https://statamic.skynettechnologies.us/
 
 ## Screenshots
 
-![App Screenshot](images/ScreenShot 1.jpg)
+![App Screenshot](images/ScreenShot%201.jpg)
 
 ![App Screenshot](images/ScreenShot 2.jpg)
 
