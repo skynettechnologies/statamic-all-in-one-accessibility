@@ -51,8 +51,7 @@ Once you have registered the settings in the Control Panel, make sure to add the
 
 ## Live Demo
 
-![https://statamic.skynettechnologies.us/](https://statamic.skynettechnologies.us/)
-
+[https://statamic.skynettechnologies.us/](https://statamic.skynettechnologies.us/)
 
 ## Screenshots
 
