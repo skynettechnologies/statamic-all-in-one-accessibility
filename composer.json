@@ -31,7 +31,7 @@
         "email": "hello@skynettechnologies.com"        
     },
     "require": {
-        "statamic/cms": "^4.0"
+        "statamic/cms": "^5.0"
     },
     "extra": {
         "statamic": {
