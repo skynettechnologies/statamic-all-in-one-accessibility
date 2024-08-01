@@ -50,27 +50,25 @@ Once you have registered the settings in the Control Panel, make sure to add the
 
 
 ## Live Demo
-
-[https://statamic.skynettechnologies.us/](https://statamic.skynettechnologies.us/)
+https://statamicnew.skynettechnologies.us/
 
 ## Screenshots
 
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/Screenshot-1.jpg?v=2)
 
-![App Screenshot](images/ScreenShot%201.jpg)
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/Screenshot-2.jpg?v=2)
 
-![App Screenshot](images/ScreenShot%202.jpg)
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/Screenshot-3.jpg?v=2)
 
-![App Screenshot](images/ScreenShot%203.jpg)
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/Screenshot-4.jpg?v=2)
 
-![App Screenshot](images/ScreenShot%204.jpg)
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/Screenshot-5.jpg?v=2)
 
-![App Screenshot](images/ScreenShot%205.jpg)
-
-![App Screenshot](images/ScreenShot%206.jpg)
+![App Screenshot](https://www.skynettechnologies.com/sites/default/files/Screenshot-6.jpg?v=2)
 
 ## Video
 
-[![All in One Accessibility](https://img.youtube.com/vi/czwC0PKIqkc/0.jpg)](https://www.youtube.com/watch?v=czwC0PKIqkc)
+[![All in One Accessibility](https://img.youtube.com/vi/I-DjgZyleeI/0.jpg)](https://www.youtube.com/watch?v=I-DjgZyleeI)
 
 ## Acknowledgements
 
