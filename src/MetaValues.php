@@ -18,42 +18,42 @@ class MetaValues {
   /**
    * @var array|Collection|null
    */
-//  private $items;
+ private $items;
 
-  // public function __construct($items = null) {
-  //   if (!is_null($items)) {
-  //     $items = collect($items)->all();
-  //   }
-  //   $this->items = $items;
-  // }
-    // public static function getNamespacedKey($key): string
-    // {
-    //     return Faviconator::NAMESPACE . '::' . $key;
-    // }
+   public function __construct($items = null) {
+     if (!is_null($items)) {
+       $items = collect($items)->all();
+     }
+     $this->items = $items;
+   }
+    public static function getNamespacedKey($key): string
+    {
+        return Faviconator::NAMESPACE . '::' . $key;
+    }
 
-  // public static function make($items = null) {
-  //   return new static($items);
-  // }
+   public static function make($items = null) {
+     return new static($items);
+   }
 
-  // public function augmented() {
-  //   return Formulus::getBlueprint()::make()
-  //     ->setContents(['fields' => MetaValues::make()->features()])
-  //     ->fields()
-  //     ->addValues($this->values())
-  //     ->augment()
-  //     ->values()
-  //     ->all();
-  // }
+   public function augmented() {
+     return Formulus::getBlueprint()::make()
+       ->setContents(['fields' => MetaValues::make()->features()])
+       ->fields()
+       ->addValues($this->values())
+       ->augment()
+       ->values()
+       ->all();
+   }
 
-  // public function save() {
-  //   File::put($this->path(), Yaml::dump($this->items));
-  // }
+   public function save() {
+     File::put($this->path(), Yaml::dump($this->items));
+   }
 
-  // public function values() {
-  //   return Yaml::file($this->path())->parse();
-  // }
+   public function values() {
+     return Yaml::file($this->path())->parse();
+   }
 
-  // private function path() {
-  //   return base_path('addons/skynettechnologies/all-in-one-accessibility/content/default.yaml');
-  // }
+   private function path() {
+     return base_path('addons/skynettechnologies/all-in-one-accessibility/content/default.yaml');
+   }
 }

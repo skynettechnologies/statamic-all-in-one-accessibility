@@ -2,6 +2,7 @@
 
 namespace Skynettechnologies\AllInOneAccessibility;
 
+use Statamic\Facades\CP;
 use Statamic\Providers\AddonServiceProvider;
 use Skynettechnologies\AllInOneAccessibility\Tags\Layout;
 use Skynettechnologies\AllInOneAccessibility\Commands\CopyAssets;
@@ -21,7 +22,11 @@ class ServiceProvider extends AddonServiceProvider
 			$this
 				->bootNavigation();
 			$this->loadViewsFrom(__DIR__ . '/../resources/views', 'skynettechnologies/statamic-all-in-one-accessibility');
+		
+		    // Adding CSS and JS files
+            $this->addAssets();
 		});
+		
 
 		Statamic::afterInstalled(function ($command) {
 			// Publish default settings, to make the first time experience easier
@@ -35,7 +40,7 @@ class ServiceProvider extends AddonServiceProvider
 			$cookieIconData = File::get(__DIR__ . '/../resources/images/logo.svg');
 
 			$nav
-				->create('All in One Accessibility™')
+				->create('All in One Accessibility®')
 				->can('skynettechnologies/statamic-all-in-one-accessibility.all_in_one_accessibility_general')
 				->route('skynettechnologies/statamic-all-in-one-accessibility.settings')
 				->section('Tools')
@@ -44,10 +49,25 @@ class ServiceProvider extends AddonServiceProvider
 
 		return $this;
 	}
+	
+	
+    protected function addAssets()
+    {
+        Statamic::style('allinoneaccessibility', asset('css/allinoneaccessibility.css'));
+        Statamic::style('bootstrap', asset('css/bootstrap.min.css'));
+        Statamic::style('style', asset('css/style.css'));
+
+        // Correct asset paths for JS
+        Statamic::script('allinoneaccessibility-js', asset('js/allinoneaccessibility.js'));
+    }
 
 	protected function bootPublishables(): ServiceProvider
 	{
 		parent::bootPublishables();
+		$this->publishes([
+            __DIR__ . '/../resources/public/css' => public_path('css'),
+            __DIR__ . '/../resources/public/js' => public_path('js'),
+        ], 'skynettechnologies/statamic-all-in-one-accessibility-assets');
 
 		return $this;
 	}

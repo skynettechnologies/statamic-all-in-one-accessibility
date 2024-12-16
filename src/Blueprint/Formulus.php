@@ -16,7 +16,7 @@ class Formulus
                 'fields' => [
                     'title' => [
                         'type' => 'text',
-                        'display' => 'All in One Accessibility',
+                        'display' => 'All in One Accessibility®',
                     ],
                     'content' => [
                         'type' => 'textarea',
