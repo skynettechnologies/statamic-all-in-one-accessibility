@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
         loader.style.display = 'none';
     }
     // Function to populate form fields dynamically from fetched settings
-    function setWidgetData(widgetPosition, widgetColor, iconType, iconSize, widgetSize, widgetIconSizeCustom, widgetPositionTop, widgetPositionBottom, widgetPositionLeft, widgetPositionRight) {
+    function setWidgetData(widgetPosition, widgetColor, iconType, iconSize, widgetSize, widgetIconSizeCustom, is_widget_custom_size, is_widget_custom_position, widgetPositionTop, widgetPositionBottom, widgetPositionLeft, widgetPositionRight) {
         if (widgetColor) {
             const colorInput = document.getElementById("color");
             const colorPicker = document.getElementById("colorpicker");
@@ -50,18 +50,42 @@ document.addEventListener('DOMContentLoaded', function () {
                 iconSizeCustomInput.value = widgetIconSizeCustom; // Set the custom size
             }
         }
-        // if (widgetIconSizeCustom !== undefined && widgetIconSizeCustom !== "") {
-        //     if (widgetIconSizeCustom == 0) {
-        //         // Directly check the radio button for custom position 0
-        //         document.querySelector(`#edit-is-widget-custom-position-0`).checked = true;
-        //         position_options(0); // Call function to show/hide sections
-        //     } else {
-        //         // Directly check the radio button for custom position 1
-        //         document.querySelector(`#edit-is-widget-custom-position-1`).checked = true;
-        //         position_options(1); // Call function to show/hide sections
-        //     }
-        // }
-        // Set Horizontal Position: Left / Right
+        
+        if (is_widget_custom_position !== undefined) {
+
+            // Set the correct radio checked
+            document.querySelectorAll('input[name="is_widget_custom_position"]').forEach(input => {
+                input.checked = input.value === String(is_widget_custom_position);
+            });
+            // Show/Hide sections based on value
+            if (String(is_widget_custom_position) === "1") {
+                // Custom Position Mode
+                document.querySelector('.edit-is-widget-custom-position-1')?.style.setProperty("display", "block");
+                document.querySelector('.edit-is-widget-custom-position-0')?.style.setProperty("display", "none");
+            } else {
+                // Fixed Position Mode
+                document.querySelector('.edit-is-widget-custom-position-0')?.style.setProperty("display", "block");
+                document.querySelector('.edit-is-widget-custom-position-1')?.style.setProperty("display", "none");
+            }
+        }
+    
+        if (is_widget_custom_size !== undefined) {
+            document.querySelectorAll('input[name="is_widget_custom_size"]').forEach(input => {
+                input.checked = input.value === String(is_widget_custom_size);
+            });
+        
+            // Show/Hide sections based on the saved value
+            if (String(is_widget_custom_size) === "1") {
+                // Custom Size Mode
+                document.querySelector('.edit-is-widget-custom-size-1')?.style.setProperty("display", "block");
+                document.querySelector('.edit-is-widget-custom-size-0')?.style.setProperty("display", "none");
+            } else {
+                // Standard Size Mode
+                document.querySelector('.edit-is-widget-custom-size-0')?.style.setProperty("display", "block");
+                document.querySelector('.edit-is-widget-custom-size-1')?.style.setProperty("display", "none");
+            }
+        }
+      
         if (widgetPositionLeft !== undefined && widgetPositionLeft !== "") {
             const positionHorizontal = document.querySelector('[name="aioa_custom_position_horizontal"]');
             if (positionHorizontal) {
@@ -161,21 +185,19 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         
     }
-    var is_widget_custom_position = document.querySelector('input[name="is_widget_custom_position"]:checked')?.value;
-     if (is_widget_custom_position) {
-        is_widget_custom_position.checked = true;
-     }
     const defaultValues = {
-        widgetPosition: 'bottom_right',
-        widgetColor: '#420083',
-        iconType: 'aioa-icon-type-1',
-        iconSize: 'aioa-default-icon',
-        widgetSize: '',
-        widgetIconSizeCustom: '20',
-        widgetPositionTop: 0,
-        widgetPositionBottom: 0,
-        widgetPositionLeft: 0,
-        widgetPositionRight: 0,
+        widgetPosition: "bottom_right",
+        widgetColor: "#420083",
+        iconType: "aioa-icon-type-1",
+        iconSize: "aioa-small-icon",
+        widgetSize: "",
+        widgetIconSizeCustom: "",
+        is_widget_custom_size: "0",
+        is_widget_custom_position: "0",
+        widgetPositionTop: "",
+        widgetPositionBottom: "",
+        widgetPositionLeft: "",
+        widgetPositionRight: ""
     };
     const domain_name = window.location.host; //window.location.host;
     if (domain_name && domain_name !== '') {
@@ -206,6 +228,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 const iconSize = data.Data?.widget_icon_size || defaultValues.iconSize;
                 const widgetSize = data.Data?.widget_size || defaultValues.widgetSize;
                 const widgetIconSizeCustom = data.Data?.widget_icon_size_custom || defaultValues.widgetIconSizeCustom;
+                const is_widget_custom_size = data.Data?.is_widget_custom_size || defaultValues.is_widget_custom_size;
+                const is_widget_custom_position = data.Data?.is_widget_custom_position || defaultValues.is_widget_custom_position;
                 const widgetPositionTop = data.Data?.widget_position_top ?? defaultValues.widgetPositionTop;
                 const widgetPositionBottom = data.Data?.widget_position_bottom ?? defaultValues.widgetPositionBottom;
                 const widgetPositionLeft = data.Data?.widget_position_left ?? defaultValues.widgetPositionLeft;
@@ -217,6 +241,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     iconSize,
                     widgetSize,
                     widgetIconSizeCustom,
+                    is_widget_custom_size,
+                    is_widget_custom_position,
                     widgetPositionTop,
                     widgetPositionBottom,
                     widgetPositionLeft,
@@ -280,7 +306,10 @@ document.addEventListener('DOMContentLoaded', function () {
         var widget_position_top=(custom_position_vertical_type==="top")?custom_position_vertical:"";
         var widget_position_bottom=(custom_position_vertical_type==="bottom")?custom_position_vertical:"";
 
-        var is_widget_custom_size = document.querySelector('.select-widget_custom_size:checked') ? document.querySelector('.select-widget_custom_size:checked').value : '';
+        var is_widget_custom_position = document.querySelector('input[name="is_widget_custom_position"]:checked')?.value || '0';
+        var is_widget_custom_size = document.querySelector('input[name="is_widget_custom_size"]:checked')?.value || '0';
+    
+        console.log("Custom Size:", is_widget_custom_size, "Custom Position:", is_widget_custom_position);
         var widget_icon_size_custom = document.getElementById("widget_icon_size_custom") ? document.getElementById("widget_icon_size_custom").value : '';
         var user_name = document.getElementById("user_name").value;  // You could also dynamically set this from JS
         var email = document.getElementById("email").value;
@@ -293,13 +322,13 @@ document.addEventListener('DOMContentLoaded', function () {
         params.append('widget_color_code', color);
         params.append('widget_icon_type', icon_typeVal);
         params.append('widget_icon_size', icon_sizeVal);
-        // params.append('is_widget_custom_position', is_widget_custom_position);
         params.append('widget_position_left', widget_position_left);
         params.append('widget_position_top', widget_position_top);
         params.append('widget_position_right', widget_position_right);
         params.append('widget_position_bottom', widget_position_bottom);
         params.append('widget_size', widget_size);
-        // params.append('is_widget_custom_size', is_widget_custom_size);
+         params.append('is_widget_custom_position', is_widget_custom_position);
+        params.append('is_widget_custom_size', is_widget_custom_size);
         params.append('widget_icon_size_custom', widget_icon_size_custom);
         // Send the request using the fetch API to the external API
         const requestOptions = {
@@ -313,9 +342,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch('https://ada.skynettechnologies.us/api/widget-setting-update-platform', requestOptions)
             .then(response => response.json())
             .then(result => {
-                // console.log(result);
                 if (result && result.status === 'success') {
-                    // console.log('Response from external API:', result);
                 }
             })
             .catch(error => {

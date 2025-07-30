@@ -142,8 +142,13 @@
 
     <div class="header-content">
         <h1 class="mb-0 text-black">
-            <img src="https://ada.skynettechnologies.us/public/trial-assets/images/all-in-one-accessibility-logo.svg" alt="All in One Accessibility - Skynet Technologies">
+            <img src="{{ asset('images/all-in-one-accessibility-logo.svg') }}" alt="All in One Accessibility - Skynet Technologies">
+
         </h1>
+    </div>
+    
+    <div class="form-group row mt-0" style="margin-bottom: auto;">
+        <b>NOTE: Currently, All in One Accessibility® is dedicated to enhancing accessibility specifically for websites and online stores.</b>
     </div>
       <!-- License Key Message -->
       <div class="form-group row mt-0" style="margin-bottom: auto;">
@@ -258,7 +263,7 @@
                         </div>
                             <div class="js-form-item form-item js-form-type-select form-type--select js-form-item-widget-position-top form-item--widget-position-top">
                                 <label for="edit-widget-position-top" class="form-label form-item__label">Position</label>
-                                    <select data-drupal-selector="edit-widget-position-top" id="widget_position_top" name="aioa_custom_position_horizontal_type" class="form-select form-element form-element--type-select select-widget_position_top">
+                                    <select data-drupal-selector="edit-widget-position-top" id="widget_position_top" name="aioa_custom_position_horizontal_type" class="form-control form-select form-element form-element--type-select select-widget_position_top">
                                         <option value="left" {{ $widget_position_bottom == "left" ? 'selected' : '' }}>To the Left</option>
                                         <option value="right" {{ $widget_position_bottom == "right" ? 'selected' : '' }}>To the Right</option>
                                     </select>
@@ -272,7 +277,7 @@
                             </div>
                             <div class="js-form-item form-item js-form-type-select form-type--select js-form-item-widget-position-bottom form-item--widget-position-bottom">
                             <label for="edit-widget-position-bottom" class="form-label form-item__label">Position</label>
-                                <select data-drupal-selector="edit-widget-position-bottom" id="widget_position_bottom" name="aioa_custom_position_vertical_type" class="form-select form-element form-element--type-select setting-widget_position_bottom">
+                                <select data-drupal-selector="edit-widget-position-bottom" id="widget_position_bottom" name="aioa_custom_position_vertical_type" class="form-control form-select form-element form-element--type-select setting-widget_position_bottom">
                                     <option value="top"  {{ $widget_position_bottom == "top" ? 'selected' : '' }}>To the Top</option>
                                     <option value="bottom"  {{ $widget_position_bottom == "bottom" ? 'selected' : '' }}>To the Bottom</option>
                                 </select>
@@ -312,14 +317,14 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-1" name="icon_type" value="aioa-icon-type-1" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-1') ? 'checked' : '' }}>
                   <label for="edit-type-1" class="icon-label">
-                    <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-1.svg" width="65" height="65" />
+                    <img src="{{ asset('images/aioa-icon-type-1.svg') }}" width="65" height="65" />
                     <span class="visually-hidden">Type 1</span>
                   </label>
                 </div>
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-2" name="icon_type" value="aioa-icon-type-2" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-2') ? 'checked' : '' }}>
                   <label for="edit-type-2" class="icon-label">
-                    <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-2.svg"
+                    <img src="{{ asset('images/aioa-icon-type-2.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 2</span>
                   </label>
@@ -327,7 +332,7 @@
                 <div class="col-auto mb-30"> 
                   <input type="radio" id="edit-type-3" name="icon_type" value="aioa-icon-type-3" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-3') ? 'checked' : '' }}>
                   <label for="edit-type-3" class="icon-label">
-                    <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-3.svg"
+                    <img src="{{ asset('images/aioa-icon-type-3.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 3</span>
                   </label>
@@ -335,7 +340,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-4" name="icon_type" value="aioa-icon-type-4" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-4') ? 'checked' : '' }}>
                     <label for="edit-type-4" class="icon-label">
-                      <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-4.svg"
+                      <img src="{{ asset('images/aioa-icon-type-4.svg') }}"
                            width="65" height="65" />
                       <span class="visually-hidden">Type 4</span>
                     </label>
@@ -343,7 +348,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-5" name="icon_type" value="aioa-icon-type-5" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-5') ? 'checked' : '' }}>
                     <label for="edit-type-5" class="icon-label">
-                      <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-5.svg"
+                      <img src="{{ asset('images/aioa-icon-type-5.svg') }}"
                            width="65" height="65" />
                       <span class="visually-hidden">Type 5</span>
                     </label>
@@ -351,7 +356,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-6" name="icon_type" value="aioa-icon-type-6" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-6') ? 'checked' : '' }}>
                     <label for="edit-type-6" class="icon-label">
-                      <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-6.svg"
+                      <img src="{{ asset('images/aioa-icon-type-6.svg') }}"
                            width="65" height="65" />
                       <span class="visually-hidden">Type 6</span>
                     </label>
@@ -359,7 +364,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-7" name="icon_type" value="aioa-icon-type-7" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-7') ? 'checked' : '' }}>
                     <label for="edit-type-7" class="icon-label">
-                      <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-7.svg"
+                      <img src="{{ asset('images/aioa-icon-type-7.svg') }}"
                            width="65" height="65" />
                       <span class="visually-hidden">Type 7</span>
                     </label>
@@ -367,7 +372,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-8" name="icon_type" value="aioa-icon-type-8" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-8') ? 'checked' : '' }}>
                     <label for="edit-type-8" class="icon-label">
-                      <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-8.svg"
+                      <img src="{{ asset('images/aioa-icon-type-8.svg') }}"
                            width="65" height="65" />
                       <span class="visually-hidden">Type 8</span>
                     </label>
@@ -375,7 +380,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-9" name="icon_type" value="aioa-icon-type-9" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-9') ? 'checked' : '' }}>
                     <label for="edit-type-9" class="icon-label">
-                      <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-9.svg"
+                      <img src="{{ asset('images/aioa-icon-type-9.svg') }}"
                            width="65" height="65" />
                       <span class="visually-hidden">Type 9</span>
                     </label>
@@ -383,7 +388,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-10" name="icon_type" value="aioa-icon-type-10" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-10') ? 'checked' : '' }}>
                     <label for="edit-type-10" class="icon-label">
-                      <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-10.svg"
+                      <img src="{{ asset('images/aioa-icon-type-10.svg') }}"
                            width="65" height="65" />
                       <span class="visually-hidden">Type 10</span>
                     </label>
@@ -391,7 +396,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-11" name="icon_type" value="aioa-icon-type-11" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-11') ? 'checked' : '' }}>
                   <label for="edit-type-11" class="icon-label">
-                    <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-11.svg"
+                    <img src="{{ asset('images/aioa-icon-type-11.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 11</span>
                   </label>
@@ -399,7 +404,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-12" name="icon_type" value="aioa-icon-type-12" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-12') ? 'checked' : '' }}>
                   <label for="edit-type-12" class="icon-label">
-                    <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-12.svg"
+                    <img src="{{ asset('images/aioa-icon-type-12.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 12</span>
                   </label>
@@ -407,7 +412,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-13" name="icon_type" value="aioa-icon-type-13" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-13') ? 'checked' : '' }}>
                   <label for="edit-type-13" class="icon-label">
-                    <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-13.svg"
+                    <img src="{{ asset('images/aioa-icon-type-13.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 13</span>
                   </label>
@@ -415,7 +420,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-14" name="icon_type" value="aioa-icon-type-14" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-14') ? 'checked' : '' }}>
                   <label for="edit-type-14" class="icon-label">
-                    <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-14.svg"
+                    <img src="{{ asset('images/aioa-icon-type-14.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 14</span>
                   </label>
@@ -423,7 +428,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-15" name="icon_type" value="aioa-icon-type-15" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-15') ? 'checked' : '' }}>
                   <label for="edit-type-15" class="icon-label">
-                    <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-15.svg"
+                    <img src="{{ asset('images/aioa-icon-type-15.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 15</span>
                   </label>
@@ -431,7 +436,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-16" name="icon_type" value="aioa-icon-type-16" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-16') ? 'checked' : '' }}>
                   <label for="edit-type-16" class="icon-label">
-                    <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-16.svg"
+                    <img src="{{ asset('images/aioa-icon-type-16.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 16</span>
                   </label>
@@ -439,7 +444,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-17" name="icon_type" value="aioa-icon-type-17" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-17') ? 'checked' : '' }}>
                   <label for="edit-type-17" class="icon-label">
-                    <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-17.svg"
+                    <img src="{{ asset('images/aioa-icon-type-17.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 17</span>
                   </label>
@@ -447,7 +452,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-18" name="icon_type" value="aioa-icon-type-18" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-18') ? 'checked' : '' }}>
                   <label for="edit-type-18" class="icon-label">
-                    <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-18.svg"
+                    <img src="{{ asset('images/aioa-icon-type-18.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 18</span>
                   </label>
@@ -455,7 +460,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-19" name="icon_type" value="aioa-icon-type-19" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-19') ? 'checked' : '' }}>
                   <label for="edit-type-19" class="icon-label">
-                    <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-19.svg"
+                    <img src="{{ asset('images/aioa-icon-type-19.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 19</span>
                   </label>
@@ -463,7 +468,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-20" name="icon_type" value="aioa-icon-type-20" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-20') ? 'checked' : '' }}>
                   <label for="edit-type-20" class="icon-label">
-                    <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-20.svg"
+                    <img src="{{ asset('images/aioa-icon-type-20.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 20</span>
                   </label>
@@ -471,7 +476,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-21" name="icon_type" value="aioa-icon-type-21" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-21') ? 'checked' : '' }}>
                   <label for="edit-type-21" class="icon-label">
-                    <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-21.svg"
+                    <img src="{{ asset('images/aioa-icon-type-21.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 21</span>
                   </label>
@@ -479,14 +484,14 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-22" name="icon_type" value="aioa-icon-type-22" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-22') ? 'checked' : '' }}>
                     <label for="edit-type-22" class="icon-label">
-                        <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-22.svg" width="65" height="65" />
+                        <img src="{{ asset('images/aioa-icon-type-22.svg') }}" width="65" height="65" />
                         <span class="visually-hidden">Type 22</span>
                     </label>
                 </div>
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-23" name="icon_type" value="aioa-icon-type-23" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-23') ? 'checked' : '' }}>
                     <label for="edit-type-23" class="icon-label">
-                        <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-23.svg" width="65" height="65" />
+                        <img src="{{ asset('images/aioa-icon-type-23.svg') }}" width="65" height="65" />
                         <span class="visually-hidden">Type 23</span>
                     </label>
                 </div>
@@ -494,7 +499,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-24" name="icon_type" value="aioa-icon-type-24" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-24') ? 'checked' : '' }}>
                     <label for="edit-type-24" class="icon-label">
-                        <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-24.svg" width="65" height="65" />
+                        <img src="{{ asset('images/aioa-icon-type-24.svg') }}" width="65" height="65" />
                         <span class="visually-hidden">Type 24</span>
                     </label>
                 </div>
@@ -502,7 +507,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-25" name="icon_type" value="aioa-icon-type-25" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-25') ? 'checked' : '' }}>
                     <label for="edit-type-25" class="icon-label">
-                        <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-25.svg" width="65" height="65" />
+                        <img src="{{ asset('images/aioa-icon-type-25.svg') }}" width="65" height="65" />
                         <span class="visually-hidden">Type 25</span>
                     </label>
                 </div>
@@ -510,7 +515,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-26" name="icon_type" value="aioa-icon-type-26" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-26') ? 'checked' : '' }}>
                     <label for="edit-type-26" class="icon-label">
-                        <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-26.svg" width="65" height="65" />
+                        <img src="{{ asset('images/aioa-icon-type-26.svg') }}" width="65" height="65" />
                         <span class="visually-hidden">Type 26</span>
                     </label>
                 </div>
@@ -518,7 +523,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-27" name="icon_type" value="aioa-icon-type-27" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-27') ? 'checked' : '' }}>
                     <label for="edit-type-27" class="icon-label">
-                        <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-27.svg" width="65" height="65" />
+                        <img src="{{ asset('images/aioa-icon-type-27.svg') }}" width="65" height="65" />
                         <span class="visually-hidden">Type 27</span>
                     </label>
                 </div>
@@ -526,7 +531,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-28" name="icon_type" value="aioa-icon-type-28" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-28') ? 'checked' : '' }}>
                     <label for="edit-type-28" class="icon-label">
-                        <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-28.svg" width="65" height="65" />
+                        <img src="{{ asset('images/aioa-icon-type-28.svg') }}" width="65" height="65" />
                         <span class="visually-hidden">Type 28</span>
                     </label>
                 </div>
@@ -534,7 +539,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-29" name="icon_type" value="aioa-icon-type-29" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-29') ? 'checked' : '' }}>
                     <label for="edit-type-29" class="icon-label">
-                        <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-29.svg" width="65" height="65" />
+                        <img src="{{ asset('images/aioa-icon-type-29.svg') }}" width="65" height="65" />
                         <span class="visually-hidden">Type 29</span>
                     </label>
                 </div>
@@ -585,7 +590,7 @@
               <div class="col-auto mb-30">
                 <input type="radio" id="edit-size-big" name="icon_size" value="aioa-big-icon" class="input-hidden aioa-iconsize">
                 <label for="edit-size-big" class="icon-label">
-                  <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-1.svg"
+                  <img src="{{ asset('images/aioa-icon-type-1.svg') }}"
                        width="75" height="75" style="margin: auto" class="iconimg" />
                   <span class="visually-hidden">Big</span>
                 </label>
@@ -593,7 +598,7 @@
               <div class="col-auto mb-30">
                 <input type="radio" id="edit-size-medium" name="icon_size" value="aioa-medium-icon" class="input-hidden aioa-iconsize">
                 <label for="edit-size-medium" class="icon-label">
-                  <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-1.svg"
+                  <img src="{{ asset('images/aioa-icon-type-1.svg') }}"
                        width="65" height="65" style="margin: auto" class="iconimg" />
                   <span class="visually-hidden">Medium</span>
                 </label>
@@ -601,7 +606,7 @@
               <div class="col-auto mb-30">
                 <input type="radio" id="edit-size-default" name="icon_size" value="aioa-default-icon" class="input-hidden aioa-iconsize">
                 <label for="edit-size-default" class="icon-label">
-                  <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-1.svg"
+                  <img src="{{ asset('images/aioa-icon-type-1.svg') }}"
                        width="55" height="55" style="margin: auto" class="iconimg" />
                   <span class="visually-hidden">Default</span>
                 </label>
@@ -609,7 +614,7 @@
               <div class="col-auto mb-30">
                 <input type="radio" id="edit-size-small" name="icon_size" value="aioa-small-icon" class="input-hidden aioa-iconsize">
                 <label for="edit-size-small" class="icon-label">
-                  <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-1.svg"
+                  <img src="{{ asset('images/aioa-icon-type-1.svg') }}"
                        width="45" height="45" style="margin: auto" class="iconimg" />
                   <span class="visually-hidden">Small</span>
                 </label>
@@ -617,7 +622,7 @@
               <div class="col-auto mb-30">
                 <input type="radio" id="edit-size-extra-small" name="icon_size" value="aioa-extra-small-icon" class="input-hidden aioa-iconsize">
                 <label for="edit-size-extra-small" class="icon-label">
-                  <img src="https://www.skynettechnologies.com/sites/default/files/aioa-icon-type-1.svg"
+                  <img src="{{ asset('images/aioa-icon-type-1.svg') }}"
                        width="35" height="35" style="margin: auto" class="iconimg" />
                   <span class="visually-hidden">Extra Small</span>
                 </label>

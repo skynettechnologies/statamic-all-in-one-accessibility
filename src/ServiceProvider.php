@@ -37,7 +37,7 @@ class ServiceProvider extends AddonServiceProvider
 	protected function bootNavigation(): ServiceProvider
 	{
 		Nav::extend(function ($nav) {
-			$cookieIconData = File::get(__DIR__ . '/../resources/images/logo.svg');
+			$cookieIconData = File::get(__DIR__ . '/../resources/public/images/logo.svg');
 
 			$nav
 				->create('All in One Accessibility®')
@@ -67,6 +67,7 @@ class ServiceProvider extends AddonServiceProvider
 		$this->publishes([
             __DIR__ . '/../resources/public/css' => public_path('css'),
             __DIR__ . '/../resources/public/js' => public_path('js'),
+            __DIR__ . '/../resources/public/images' => public_path('images'),
         ], 'skynettechnologies/statamic-all-in-one-accessibility-assets');
 
 		return $this;
