@@ -4,101 +4,87 @@ namespace Skynettechnologies\AllInOneAccessibility;
 
 use Statamic\Facades\CP;
 use Statamic\Providers\AddonServiceProvider;
-use Skynettechnologies\AllInOneAccessibility\Tags\Layout;
 use Skynettechnologies\AllInOneAccessibility\Commands\CopyAssets;
 use Skynettechnologies\AllInOneAccessibility\Tags\AllInOneAccessibility;
 use Statamic\Statamic;
 use Statamic\Facades\CP\Nav;
 use Illuminate\Support\Facades\File;
-use Statamic\Facades\Permission;
 
 class ServiceProvider extends AddonServiceProvider
 {
-	public function boot()
-	{
-		parent::boot();
+    protected $routes = [
+        'cp' => __DIR__.'/../routes/cp.php',
+    ];
 
-		Statamic::booted(function () {
-			$this
-				->bootNavigation();
-			$this->loadViewsFrom(__DIR__ . '/../resources/views', 'skynettechnologies/statamic-all-in-one-accessibility');
-		
-		    // Adding CSS and JS files
-            $this->addAssets();
-		});
-		
+    protected $tags = [
+        AllInOneAccessibility::class,
+    ];
 
-		Statamic::afterInstalled(function ($command) {
-			// Publish default settings, to make the first time experience easier
-			$command->call('vendor:publish', ['--tag' => 'skynettechnologies/statamic-all-in-one-accessibility-settings']);
-		});
-	}
+    protected $commands = [
+        CopyAssets::class,
+    ];
 
-	protected function bootNavigation(): ServiceProvider
-	{
-		Nav::extend(function ($nav) {
-			$cookieIconData = File::get(__DIR__ . '/../resources/public/images/logo.svg');
+    protected $modifiers = [];
 
-			$nav
-				->create('All in One Accessibility®')
-				->can('skynettechnologies/statamic-all-in-one-accessibility.all_in_one_accessibility_general')
-				->route('skynettechnologies/statamic-all-in-one-accessibility.settings')
-				->section('Tools')
-				->icon($cookieIconData ?? 'alert');
-		});
+    protected $fieldtypes = [];
 
-		return $this;
-	}
-	
-	
-    protected function addAssets()
+    protected $widgets = [];
+
+    public function boot()
     {
-        Statamic::style('allinoneaccessibility', asset('css/allinoneaccessibility.css'));
-        Statamic::style('bootstrap', asset('css/bootstrap.min.css'));
-        Statamic::style('style', asset('css/style.css'));
+        parent::boot();
 
-        // Correct asset paths for JS
-        Statamic::script('allinoneaccessibility-js', asset('js/allinoneaccessibility.js'));
+        Statamic::booted(function () {
+
+            $this->bootNavigation();
+
+            // Load CP CSS
+            Statamic::style('aioa-allinone', '/vendor/statamic-all-in-one-accessibility/css/allinoneaccessibility.css');
+            Statamic::style('aioa-bootstrap', '/vendor/statamic-all-in-one-accessibility/css/bootstrap.min.css');
+            Statamic::style('aioa-style', '/vendor/statamic-all-in-one-accessibility/css/style.css');
+
+            // Load CP JS
+            Statamic::script('aioa-js', '/vendor/statamic-all-in-one-accessibility/js/allinoneaccessibility.js');
+
+            // Load views
+            $this->loadViewsFrom(__DIR__.'/../resources/views', 'skynettechnologies/statamic-all-in-one-accessibility');
+        });
+
+        // Publish assets
+        $this->bootPublishables();
     }
 
-	protected function bootPublishables(): ServiceProvider
-	{
-		parent::bootPublishables();
-		$this->publishes([
-            __DIR__ . '/../resources/public/css' => public_path('css'),
-            __DIR__ . '/../resources/public/js' => public_path('js'),
-            __DIR__ . '/../resources/public/images' => public_path('images'),
-        ], 'skynettechnologies/statamic-all-in-one-accessibility-assets');
+    protected function bootNavigation(): ServiceProvider
+    {
+        $logoPath = __DIR__.'/../resources/public/images/logo.svg';
 
-		return $this;
-	}
+        $icon = File::exists($logoPath)
+            ? File::get($logoPath)
+            : 'alert';
 
-	public function bootAddon()
-	{
-	}
+        Nav::extend(function ($nav) use ($icon) {
+            $nav
+                ->create('All in One Accessibility®')
+                ->section('Tools')
+                ->route('skynettechnologies/statamic-all-in-one-accessibility.settings')
+                ->can('skynettechnologies/statamic-all-in-one-accessibility.all_in_one_accessibility_general')
+                ->icon($icon);
+        });
 
-	protected $routes = [
-		'cp' => __DIR__ . '/../routes/cp.php',
-	];
+        return $this;
+    }
 
-	protected $tags = [
-		AllInOneAccessibility::class,
-	];
+    protected function bootPublishables(): ServiceProvider
+    {
+        $this->publishes([
+            __DIR__.'/../resources/public' => public_path('vendor/statamic-all-in-one-accessibility'),
+        ], 'statamic-all-in-one-accessibility');
 
-	protected $commands = [
-		CopyAssets::class,
-	];
+        return $this;
+    }
 
-
-	protected $modifiers = [
-		//
-	];
-
-	protected $fieldtypes = [
-		//
-	];
-
-	protected $widgets = [
-		//
-	];
+    public function bootAddon()
+    {
+        // Optional addon boot logic
+    }
 }

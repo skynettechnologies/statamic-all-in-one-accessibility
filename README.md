@@ -155,6 +155,7 @@ English (USA), English (UK), English (Australian), English (Canadian), English (
 ## Installation
 
 ### Prerequisites
+
 - Statamic version ^5.0
 
 ### Steps
@@ -172,7 +173,7 @@ composer require skynettechnologies/statamic-all-in-one-accessibility
 To publish assets run the following command from your project root:
 
 ``` bash
-php artisan all-in-one-accessibility:copy-assets
+php artisan vendor:publish --tag=statamic-all-in-one-accessibility
 ```
 
 Checkout our **[How to install All in One Accessibility Addon on Statamic](https://www.skynettechnologies.com/blog/statamic-web-accessibility-widget-installation)**
