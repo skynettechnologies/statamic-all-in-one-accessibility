@@ -489,9 +489,9 @@ a,
     border-radius: .36rem;
     padding: 10px 22px
 }
-.hide {
-    display: none !important
-}
+/*.hide {*/
+/*    display: none !important*/
+/*}*/
 .widget-state {
     margin: 0 auto 40px;
     border-radius: 19px;
@@ -895,4 +895,25 @@ span.discount {
 }
 .tooltip.switcher-tooltip .tooltip-inner {
     max-width: none
+}
+
+.global-header .global-header-icon-button {
+    background-color: #fff;
+    border:1px solid transparent;
+}
+.global-header .global-header-icon-button:hover{
+    border-color: #ccc;
+}
+.global-header [aria-label="Toggle Nav"] {
+    color: #000;
+    background-color: transparent;
+    border: none;
+    margin-left: 0 !important;
+}
+.nav-main .nav-main-inner h6{margin-top: 1.25rem; color: #000; font-weight: bold;}
+.global-header a:not([class^=btn]) .hidden{
+    height:28px;
+}
+.nav-main .nav-main-inner .nav-section-top-level a {
+    font-weight: 500;
 }

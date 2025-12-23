@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    
+
     const loader = document.getElementById('loader');
     // Function to show loader
     function showLoader() {
@@ -43,14 +43,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 widgetSizeRadio.checked = true;
             }
         }
-    
+
         if (widgetIconSizeCustom !== undefined && widgetIconSizeCustom !== "") {
             const iconSizeCustomInput = document.getElementById("widget_icon_size_custom");
             if (iconSizeCustomInput) {
                 iconSizeCustomInput.value = widgetIconSizeCustom; // Set the custom size
             }
         }
-        
+
         if (is_widget_custom_position !== undefined) {
 
             // Set the correct radio checked
@@ -68,12 +68,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.querySelector('.edit-is-widget-custom-position-1')?.style.setProperty("display", "none");
             }
         }
-    
+
         if (is_widget_custom_size !== undefined) {
             document.querySelectorAll('input[name="is_widget_custom_size"]').forEach(input => {
                 input.checked = input.value === String(is_widget_custom_size);
             });
-        
+
             // Show/Hide sections based on the saved value
             if (String(is_widget_custom_size) === "1") {
                 // Custom Size Mode
@@ -85,8 +85,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.querySelector('.edit-is-widget-custom-size-1')?.style.setProperty("display", "none");
             }
         }
-      
-        if (widgetPositionLeft !== undefined && widgetPositionLeft !== "") {
+
+        if (widgetPositionLeft !== undefined && widgetPositionLeft !== null) {
             const positionHorizontal = document.querySelector('[name="aioa_custom_position_horizontal"]');
             if (positionHorizontal) {
                 positionHorizontal.value = widgetPositionLeft;
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        if (widgetPositionRight !== undefined && widgetPositionRight !== "") {
+        if (widgetPositionRight !== undefined && widgetPositionRight !== null) {
             const positionHorizontal = document.querySelector('[name="aioa_custom_position_horizontal"]');
             if (positionHorizontal) {
                 positionHorizontal.value = widgetPositionRight;
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Set Vertical Position: Top / Bottom
-        if (widgetPositionTop !== undefined && widgetPositionTop !== "") {
+        if (widgetPositionTop !== undefined && widgetPositionTop !== null) {
             const positionVerticalType = document.querySelector('[name="aioa_custom_position_vertical_type"]');
             if (positionVerticalType) {
                 positionVerticalType.value = "top";
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (widgetPositionBottom) widgetPositionBottom.value = "";
         }
 
-        if (widgetPositionBottom !== undefined && widgetPositionBottom !== "") {
+        if (widgetPositionBottom !== undefined && widgetPositionBottom !== null) {
             const positionVerticalType = document.querySelector('[name="aioa_custom_position_vertical_type"]');
             if (positionVerticalType) {
                 positionVerticalType.value = "bottom";
@@ -129,37 +129,31 @@ document.addEventListener('DOMContentLoaded', function () {
             if (widgetPositionTop) widgetPositionTop.value = "";
         }
 
-        // Select correct option for Horizontal Position (Left or Right)
-        if (widgetPositionLeft || widgetPositionRight) {
-            const positionHorizontalTypeSelect = document.querySelector('[name="aioa_custom_position_horizontal_type"]');
-            if (positionHorizontalTypeSelect) {
-                const options = positionHorizontalTypeSelect.querySelectorAll('option');
-                options.forEach(option => {
-                    if (widgetPositionLeft && option.value === "left") {
-                        option.selected = true;
-                    }
-                    if (widgetPositionRight && option.value === "right") {
-                        option.selected = true;
-                    }
-                });
-            }
+        const horizontalInput = document.querySelector('[name="aioa_custom_position_horizontal"]');
+        const horizontalType = document.querySelector('[name="aioa_custom_position_horizontal_type"]');
+
+        if (widgetPositionLeft !== undefined && widgetPositionLeft !== null && widgetPositionLeft !== "") {
+            horizontalInput.value = widgetPositionLeft;
+            horizontalType.value = "left";
+        }
+        else if (widgetPositionRight !== undefined && widgetPositionRight !== null && widgetPositionRight !== "") {
+            horizontalInput.value = widgetPositionRight;
+            horizontalType.value = "right";
         }
 
-        // Select correct option for Vertical Position (Top or Bottom)
-        if (widgetPositionTop || widgetPositionBottom) {
-            const positionVerticalTypeSelect = document.querySelector('[name="aioa_custom_position_vertical_type"]');
-            if (positionVerticalTypeSelect) {
-                const options = positionVerticalTypeSelect.querySelectorAll('option');
-                options.forEach(option => {
-                    if (widgetPositionTop && option.value === "top") {
-                        option.selected = true;
-                    }
-                    if (widgetPositionBottom && option.value === "bottom") {
-                        option.selected = true;
-                    }
-                });
-            }
+        const verticalInput = document.querySelector('[name="aioa_custom_position_vertical"]');
+        const verticalType = document.querySelector('[name="aioa_custom_position_vertical_type"]');
+
+        if (widgetPositionTop !== undefined && widgetPositionTop !== null && widgetPositionTop !== "") {
+            verticalInput.value = widgetPositionTop;
+            verticalType.value = "top";
         }
+        else if (widgetPositionBottom !== undefined && widgetPositionBottom !== null && widgetPositionBottom !== "") {
+            verticalInput.value = widgetPositionBottom;
+            verticalType.value = "bottom";
+        }
+
+
         const positionHorizontalTextBox = document.querySelector('[name="aioa_custom_position_horizontal"]');
         if (positionHorizontalTextBox) {
             const positionHorizontalTextBox = document.querySelector('[name="aioa_custom_position_horizontal"]');
@@ -183,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 positionVerticalTextBox.value = widgetPositionTop;
             }
         }
-        
+
     }
     const defaultValues = {
         widgetPosition: "bottom_right",
@@ -199,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
         widgetPositionLeft: "",
         widgetPositionRight: ""
     };
-    const domain_name = window.location.host; //window.location.host;
+    const domain_name = window.location.hostname; //window.location.host;
     if (domain_name && domain_name !== '') {
         // Show loader before fetching data
         showLoader();
@@ -230,10 +224,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 const widgetIconSizeCustom = data.Data?.widget_icon_size_custom || defaultValues.widgetIconSizeCustom;
                 const is_widget_custom_size = data.Data?.is_widget_custom_size || defaultValues.is_widget_custom_size;
                 const is_widget_custom_position = data.Data?.is_widget_custom_position || defaultValues.is_widget_custom_position;
-                const widgetPositionTop = data.Data?.widget_position_top ?? defaultValues.widgetPositionTop;
-                const widgetPositionBottom = data.Data?.widget_position_bottom ?? defaultValues.widgetPositionBottom;
-                const widgetPositionLeft = data.Data?.widget_position_left ?? defaultValues.widgetPositionLeft;
-                const widgetPositionRight = data.Data?.widget_position_right ?? defaultValues.widgetPositionRight;
+                const widgetPositionTop = data.Data?.widget_position_top;
+                const widgetPositionBottom = data.Data?.widget_position_bottom;
+                const widgetPositionLeft = data.Data?.widget_position_left;
+                const widgetPositionRight = data.Data?.widget_position_right;
                 setWidgetData(
                     widgetPosition,
                     widgetColor,
@@ -253,25 +247,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error("Error fetching widget position:", error);
             })
             .finally(() => {
-                    // Hide loader after fetching data is complete (success or error)
-                    hideLoader();
+                // Hide loader after fetching data is complete (success or error)
+                hideLoader();
             });
-        }
-        else {
-            // If domain_name is not valid, set default values
-            setWidgetData(
-                defaultValues.widgetPosition,
-                defaultValues.widgetColor,
-                defaultValues.iconType,
-                defaultValues.iconSize,
-                defaultValues.widgetSize,
-                defaultValues.widgetIconSizeCustom,
-                defaultValues.widgetPositionTop,
-                defaultValues.widgetPositionBottom,
-                defaultValues.widgetPositionLeft,
-                defaultValues.widgetPositionRight
-            );
-        }
+    }
+    else {
+        // If domain_name is not valid, set default values
+        setWidgetData(
+            defaultValues.widgetPosition,
+            defaultValues.widgetColor,
+            defaultValues.iconType,
+            defaultValues.iconSize,
+            defaultValues.widgetSize,
+            defaultValues.widgetIconSizeCustom,
+            defaultValues.widgetPositionTop,
+            defaultValues.widgetPositionBottom,
+            defaultValues.widgetPositionLeft,
+            defaultValues.widgetPositionRight
+        );
+    }
     $('.colorpicker').on('input', function () {
         $('.colorint').val(this.value);
     });
@@ -294,65 +288,78 @@ document.addEventListener('DOMContentLoaded', function () {
         var icon_typeVal = document.querySelector('.icon_type:checked').value;
         var icon_sizeVal = document.querySelector('.aioa-iconsize:checked').value;
         // var is_widget_custom_position = document.querySelector('input[name="is_widget_custom_position"]:checked').value;
-
         var custom_position_horizontal = document.querySelector('input[name="aioa_custom_position_horizontal"]').value;
         var custom_position_vertical = document.querySelector('input[name="aioa_custom_position_vertical"]').value;
         var custom_position_horizontal_type = document.querySelector('select[name="aioa_custom_position_horizontal_type"]').value;
         var custom_position_vertical_type = document.querySelector('select[name="aioa_custom_position_vertical_type"]').value;
         var widget_size = document.querySelector('.select-widget-size:checked').value;
-
         var widget_position_left=(custom_position_horizontal_type==="left")?custom_position_horizontal:"";
         var widget_position_right=(custom_position_horizontal_type==="right")?custom_position_horizontal:"";
         var widget_position_top=(custom_position_vertical_type==="top")?custom_position_vertical:"";
         var widget_position_bottom=(custom_position_vertical_type==="bottom")?custom_position_vertical:"";
-
         var is_widget_custom_position = document.querySelector('input[name="is_widget_custom_position"]:checked')?.value || '0';
         var is_widget_custom_size = document.querySelector('input[name="is_widget_custom_size"]:checked')?.value || '0';
-    
+
+        if (is_widget_custom_size == 1) {
+            const customSizeInput = document.getElementById("widget_icon_size_custom");
+            const customSize = parseInt(customSizeInput.value, 10);
+            if (isNaN(customSize) || customSize < 20 || customSize > 150) {
+                alert("Icon size must be between 20 and 150 px.");
+                document.getElementById('loader').style.display = 'none';
+                customSizeInput.focus();
+                return;
+            }
+        }
+
         console.log("Custom Size:", is_widget_custom_size, "Custom Position:", is_widget_custom_position);
-        var widget_icon_size_custom = document.getElementById("widget_icon_size_custom") ? document.getElementById("widget_icon_size_custom").value : '';
+        if (is_widget_custom_size == 1) {
+            var widget_icon_size_custom = document.getElementById("widget_icon_size_custom").value;
+        }
         var user_name = document.getElementById("user_name").value;  // You could also dynamically set this from JS
         var email = document.getElementById("email").value;
 
-
-        var  domain_name = window.location.host;//window.location.host;
-        var params = new URLSearchParams();
-        params.append('u', domain_name);
-        params.append('widget_position', positionVal);
-        params.append('widget_color_code', color);
-        params.append('widget_icon_type', icon_typeVal);
-        params.append('widget_icon_size', icon_sizeVal);
-        params.append('widget_position_left', widget_position_left);
-        params.append('widget_position_top', widget_position_top);
-        params.append('widget_position_right', widget_position_right);
-        params.append('widget_position_bottom', widget_position_bottom);
-        params.append('widget_size', widget_size);
-         params.append('is_widget_custom_position', is_widget_custom_position);
-        params.append('is_widget_custom_size', is_widget_custom_size);
-        params.append('widget_icon_size_custom', widget_icon_size_custom);
-        // Send the request using the fetch API to the external API
-        const requestOptions = {
-            method: "POST",
-            body: params,
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded' // Ensure the body is sent as URL-encoded
-            },
-            redirect: "follow"
+        var  domain_name = window.location.hostname;//window.location.host;
+        var payload = {
+            u: domain_name,
+            widget_position: positionVal,
+            is_widget_custom_position: is_widget_custom_position,
+            is_widget_custom_size: is_widget_custom_size,
+            widget_color_code: color,
+            widget_icon_type: icon_typeVal,
+            widget_icon_size: icon_sizeVal,
+            widget_size: widget_size,
+            widget_icon_size_custom: widget_icon_size_custom,
+            widget_position_right: widget_position_right,
+            widget_position_left: widget_position_left,
+            widget_position_top: widget_position_top,
+            widget_position_bottom: widget_position_bottom
         };
-        fetch('https://ada.skynettechnologies.us/api/widget-setting-update-platform', requestOptions)
-            .then(response => response.json())
-            .then(result => {
-                if (result && result.status === 'success') {
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://ada.skynettechnologies.us/api/widget-setting-update-platform', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.onload = function () {
+            document.getElementById('loader').style.display = 'none';
+            if (xhr.status === 200) {
+                try {
+                    var response = JSON.parse(xhr.responseText);
+                    alert(response.msg || "Settings updated successfully!");
+                    location.reload();
+                } catch (e) {
+                    console.error('Invalid JSON response:', xhr.responseText);
+                    alert("Settings saved, but response format is invalid.");
                 }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            })
-            .finally(() => {
-                // Hide the loader after the form is submitted
-                document.getElementById('loader').style.display = 'none';
-                alert("Widget Settings saved successfully!!!");
-            });
+            } else {
+                console.error('HTTP Error:', xhr.status, xhr.statusText);
+                alert("Error: Unable to update settings.");
+            }
+        };
+        xhr.onerror = function () {
+            document.getElementById('loader').style.display = 'none';
+            alert("Network error. Please check your internet connection.");
+        };
+        xhr.send(JSON.stringify(payload));
     });
 
     const sizeOptions = document.querySelectorAll('input[name="icon_size"]');
