@@ -5,15 +5,22 @@ namespace Skynettechnologies\AllInOneAccessibility\Http\Controllers;
 use Statamic\Http\Controllers\CP\CpController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Auth;
 
 class SettingsController extends CpController
 {
     public function index(Request $request)
     {
-        $message   = '';
-        $userName  = 'Dear Customer';
-        $userLogin = 'no-reply@statamic.com';
-        $domain    = $_SERVER['HTTP_HOST'] ?? url('');
+        $domain  = $_SERVER['HTTP_HOST'] ?? parse_url(url('/'), PHP_URL_HOST);
+        $message = '';
+        $adminUser = Auth::user();
+        if ($adminUser) {
+            $userName  = $adminUser->name ?? 'Dear Customer';
+            $userLogin = $adminUser->email ?? ('no-reply@' . $domain);
+        } else {
+            $userName  = 'Dear Customer';
+            $userLogin = 'no-reply@' . $domain;
+        }
         $base64Domain = base64_encode($domain);
         /**
          * --------------------------------------

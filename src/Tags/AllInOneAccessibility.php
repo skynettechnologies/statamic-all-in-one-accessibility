@@ -68,7 +68,7 @@ class AllInOneAccessibility extends Tags
             return $debugJs . '<script>
             const scriptTag = document.createElement("script");
             scriptTag.id = "aioa-adawidget";
-            scriptTag.src = "https://www.skynettechnologies.com/accessibility/js/all-in-one-accessibility-js-widget-minify.js?colorcode=#&token=&position=";
+            scriptTag.src = "https://www.skynettechnologies.com/accessibility/js/all-in-one-accessibility-js-widget-minify.js?colorcode=#420083&token=&position=bottom_right";
             document.head.appendChild(scriptTag);
         </script>';
         }

@@ -21,17 +21,17 @@
     },
     "authors": [
         {
-            "name": "Skynet Technologies USA LLC",
+            "name": "Rajesh Bhimani",
             "email": "developer3@skynettechnologies.com",
             "role": "Developer",
             "homepage": "https://skynettechnologies.com"
         }
     ],
     "support": {
-        "email": "hello@skynettechnologies.com"        
+        "email": "hello@skynettechnologies.com"
     },
     "require": {
-        "statamic/cms": "^5.0"
+        "statamic/cms": "^5.0 || ^6.0"
     },
     "extra": {
         "statamic": {

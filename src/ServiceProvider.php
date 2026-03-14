@@ -22,11 +22,11 @@ class ServiceProvider extends AddonServiceProvider
 			$this
 				->bootNavigation();
 			$this->loadViewsFrom(__DIR__ . '/../resources/views', 'skynettechnologies/statamic-all-in-one-accessibility');
-		
+
 		    // Adding CSS and JS files
             $this->addAssets();
 		});
-		
+
 
 		Statamic::afterInstalled(function ($command) {
 			// Publish default settings, to make the first time experience easier
@@ -37,8 +37,8 @@ class ServiceProvider extends AddonServiceProvider
 	protected function bootNavigation(): ServiceProvider
 	{
 		Nav::extend(function ($nav) {
-			$cookieIconData = File::get(__DIR__ . '/../resources/public/images/logo.svg');
-
+            $svgPath = __DIR__ . '/../resources/public/images/logo.svg';
+            $cookieIconData = File::exists($svgPath) ? File::get($svgPath) : 'alert';
 			$nav
 				->create('All in One Accessibility®')
 				->can('skynettechnologies/statamic-all-in-one-accessibility.all_in_one_accessibility_general')
@@ -46,11 +46,9 @@ class ServiceProvider extends AddonServiceProvider
 				->section('Tools')
 				->icon($cookieIconData ?? 'alert');
 		});
-
-		return $this;
 	}
-	
-	
+
+
     protected function addAssets()
     {
         Statamic::style('allinoneaccessibility', asset('css/allinoneaccessibility.css'));
