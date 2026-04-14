@@ -28,13 +28,13 @@ class AllInOneAccessibility extends Tags
         $icon_type = 'aioa-icon-type-1';
         $icon_size = 'aioa-medium-icon';
         // Call API
-        $apiUrl = 'https://ada.skynettechnologies.us/api/add-user-domain';
+        $apiUrl = 'https://ada.skynettechnologies.us/api/widget-settings';
         $ch = curl_init($apiUrl);
         curl_setopt_array($ch, [
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_POST => true,
             CURLOPT_POSTFIELDS => json_encode([
-                'website' => $domainBase64
+                'website_url' => $domain
             ]),
             CURLOPT_HTTPHEADER => [
                 'Content-Type: application/json'
@@ -46,7 +46,7 @@ class AllInOneAccessibility extends Tags
         curl_close($ch);
         $apiResponse = json_decode($response, true);
         // 0 = EU | 1 = NON-EU
-        $noRequiredEu = $apiResponse['website_data']['no_required_eu'] ?? 1;
+        $noRequiredEu = $apiResponse['Data']['no_required_eu'] ?? 1;
         $debugJs = "
             <script>
                 console.log('ADA Full API Response:', " . json_encode($apiResponse) . ");
