@@ -3,8 +3,8 @@
 namespace Skynettechnologies\AllInOneAccessibility\Commands;
 
 use Illuminate\Console\Command;
+use Statamic\Addons\Manifest;
 use Statamic\Console\RunsInPlease;
-use Statamic\Extend\Manifest;
 use Illuminate\Support\Facades\File;
 
 class CopyAssets extends Command

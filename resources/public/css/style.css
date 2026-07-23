@@ -19,14 +19,17 @@ h6,
     color: #420083
 }
 a {
-    color: #420083;
     text-decoration: none;
     background-color: rgba(0, 0, 0, 0)
 }
 a,
 .link {
-    color: #420083
 }
+
+#license_key_msg strong a {
+    color: #007bff;
+}
+
 .mb-30 {
     margin-bottom: 30px !important
 }
@@ -68,15 +71,19 @@ a,
     border-color: #420083;
     color: #fff
 }
-.btn-primary {
-    color: #fff;
-    background-color: #420083;
-    border-color: #420083
+.aioa-btn{
+    background:#420083;
+    color:#fff;
+    padding:10px 22px;
+    border:none;
+    border-radius:6px;
+    font-weight:600;
+    transition:0.3s ease;
 }
-.btn-primary:hover,
-.btn-primary:focus {
-    background-color: #420083;
-    border-color: #420083
+
+.aioa-btn:hover{
+    background:#2e005c;
+    transform:translateY(-1px);
 }
 .btn-warning {
     color: #212529;

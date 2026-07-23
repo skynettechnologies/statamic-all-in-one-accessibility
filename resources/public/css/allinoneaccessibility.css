@@ -99,6 +99,9 @@ html,body{
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     box-sizing: border-box;
     background-color: #e9efff;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 6px;
 }
 
 .aioa-settings-panel *,
@@ -209,21 +212,6 @@ html,body{
 }
 LABEL {
     DISPLAY: -webkit-inline-box;
-}
-BUTTON, INPUT[type=submit], INPUT[type=clear], INPUT[type=button], INPUT[type=reset] {
-    PADDING-RIGHT: 0.5em;
-    PADDING-LEFT: 0.5em;
-    PADDING-BOTTOM: 2px;
-    PADDING-TOP: 2px;
-    padding: 1%;
-    background-color: #68a24e;
-    BACKGROUND-IMAGE: url(images/table-caption-grey.png);
-    BACKGROUND-POSITION: bottom;
-    BACKGROUND-REPEAT: repeat-x;
-    COLOR: #ffffff;
-    FONT-WEIGHT: bold;
-    CURSOR: pointer;
-    BORDER: outset 4px #bed8b2;
 }
 
 .three-col {

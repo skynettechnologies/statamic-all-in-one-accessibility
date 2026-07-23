@@ -115,26 +115,20 @@
         }
 </style>
 @section('content')
-
 <?php use Statamic\Statamic;
-
 ?>
-
-    <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Statamic App - Subscription Plan" />
-    <link href="{{ asset('css/allinoneaccessibility.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
-    <!--<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />-->
+    <link href="{{ asset('assets/allinoneaccessibility/css/allinoneaccessibility.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/allinoneaccessibility/css/style.css') }}" rel="stylesheet" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
-<body>
-
 <div class="panel panel-default aioa-settings-panel">
   <div class="panel-body">
-    <form method="POST" enctype="multipart/form-data" id="form-module">
+    <form method="POST" action="{{ cp_route('skynettechnologies.statamic_all_in_one_accessibility.store') }}" enctype="multipart/form-data" id="form-module">
+        @csrf
       <input type="hidden" id="settings-isvalid_key" name="isvalid_key" value="">
       <input type="hidden" id="id" name="id" value="{{ $id }}">
       <input type="hidden" id="user_name" name="user_name" value="{{ $user_name }}">
@@ -142,7 +136,7 @@
 
     <div class="header-content">
         <h1 class="mb-0 text-black">
-            <img src="{{ asset('images/all-in-one-accessibility-logo.svg') }}" alt="All in One Accessibility - Skynet Technologies">
+            <img src="{{ asset('assets/allinoneaccessibility/images/all-in-one-accessibility-logo.svg') }}" alt="All in One Accessibility - Skynet Technologies">
 
         </h1>
     </div>
@@ -163,7 +157,7 @@
       </div>
 
       <!-- Hex Color Input -->
-      <div class="form-group common-class" style="margin-bottom: 3px;">
+      <div class="form-group common-class" style="margin-bottom: 10px;margin-top: 12px;">
         <label class="h3" for="color">Hex color code:</label>
         <div class="d-flex" style="max-width: 300px;">
           <input type="text" name="color" value="{{ $color }}" id="color" class="form-control colorint me-3">
@@ -181,7 +175,7 @@
                 <input type="radio" id="edit-is-widget-custom-position-0" name="is_widget_custom_position" value="0"
                        class="form-radio form-boolean form-boolean--type-radio select-widget-position"
                        {{ $is_widget_custom_position == '0' ? 'checked' : '' }}>
-                <label for="edit-is-widget-custom-position-0" class="form-item__label option">Fix Position</label>
+                <label for="edit-is-widget-custom-position-0" class="form-item__label option" style="margin-left: 0.5%;">Fix Position</label>
             </div>
 
             <!-- Custom Position Radio -->
@@ -189,7 +183,7 @@
                 <input type="radio" id="edit-is-widget-custom-position-1" name="is_widget_custom_position" value="1"
                        class="form-radio form-boolean form-boolean--type-radio select-widget-position"
                        {{ $is_widget_custom_position == '1' ? 'checked' : '' }}>
-                <label for="edit-is-widget-custom-position-1" class="form-item__label option">Custom Position</label>
+                <label for="edit-is-widget-custom-position-1" class="form-item__label option" style="margin-left: 0.5%;">Custom Position</label>
             </div>
         </div>
     </div>
@@ -202,49 +196,49 @@
                 <div class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                     <input type="radio" name="position" id="aioaPositionTL" class="aioa-position" value="top_left"
                         {{ $position == 'top_left' ? 'checked' : '' }}>
-                    <label for="aioaPositionTL" style="font-weight:normal !important">Top Left</label>
+                    <label for="aioaPositionTL" style="font-weight:normal !important;margin-left: 2.5%;">Top Left</label>
                 </div>
                 <!-- Top Center -->
                 <div class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                     <input type="radio" name="position" id="aioaPositionTC" class="aioa-position" value="top_center"
                         {{ $position == 'top_center' ? 'checked' : '' }}>
-                    <label for="aioaPositionTC" style="font-weight:normal !important">Top Center</label>
+                    <label for="aioaPositionTC" style="font-weight:normal !important;margin-left: 2.5%;">Top Center</label>
                 </div>
                 <!-- Top Right -->
                 <div class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                     <input type="radio" name="position" id="aioaPositionTR" class="aioa-position" value="top_right"
                         {{ $position == 'top_right' ? 'checked' : '' }}>
-                    <label for="aioaPositionTR" style="font-weight:normal !important">Top Right</label>
+                    <label for="aioaPositionTR" style="font-weight:normal !important;margin-left: 2.5%;">Top Right</label>
                 </div>
                 <!-- Bottom Left -->
                 <div class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                     <input type="radio" name="position" id="aioaPositionBL" class="aioa-position" value="bottom_left"
                         {{ $position == 'bottom_left' ? 'checked' : '' }}>
-                    <label for="aioaPositionBL" style="font-weight:normal !important">Bottom Left</label>
+                    <label for="aioaPositionBL" style="font-weight:normal !important;margin-left: 2.5%;">Bottom Left</label>
                 </div>
                 <!-- Bottom Right -->
                 <div class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                     <input type="radio" name="position" id="aioaPositionBR" class="aioa-position" value="bottom_right"
                         {{ $position == 'bottom_right' ? 'checked' : '' }}>
-                    <label for="aioaPositionBR" style="font-weight:normal !important">Bottom Right</label>
+                    <label for="aioaPositionBR" style="font-weight:normal !important;margin-left: 2.5%;">Bottom Right</label>
                 </div>
                 <!-- Bottom Center -->
                 <div class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                     <input type="radio" name="position" id="aioaPositionBC" class="aioa-position" value="bottom_center"
                         {{ $position == 'bottom_center' ? 'checked' : '' }}>
-                    <label for="aioaPositionBC" style="font-weight:normal !important">Bottom Center</label>
+                    <label for="aioaPositionBC" style="font-weight:normal !important;margin-left: 2.5%;">Bottom Center</label>
                 </div>
                 <!-- Middle Left -->
                 <div class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                     <input type="radio" name="position" id="aioaPositionML" class="aioa-position" value="middle_left"
                         {{ $position == 'middle_left' ? 'checked' : '' }}>
-                    <label for="aioaPositionML" style="font-weight:normal !important">Middle Left</label>
+                    <label for="aioaPositionML" style="font-weight:normal !important;margin-left: 2.5%;">Middle Left</label>
                 </div>
                 <!-- Middle Right -->
                 <div class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
                     <input type="radio" name="position" id="aioaPositionMR" class="aioa-position" value="middle_right"
                         {{ $position == 'middle_right' ? 'checked' : '' }}>
-                    <label for="aioaPositionMR" style="font-weight:normal !important">Middle Right</label>
+                    <label for="aioaPositionMR" style="font-weight:normal !important;margin-left: 2.5%;">Middle Right</label>
                 </div>
             </div>
         </fieldset>
@@ -298,13 +292,13 @@
             <input type="radio" id="widget-size-regular" name="widget_size" value="0"
               class="form-radio form-boolean form-boolean--type-radio select-widget-size"
               {{ ($widget_size == '0') ? 'checked' : '' }}>
-            <label for="widget-size-regular" class="form-item__label">Regular Size</label>
+            <label for="widget-size-regular" class="form-item__label" style="margin-left: 0.5%;">Regular Size</label>
           </div>
           <div class="form-radio-item">
             <input type="radio" id="widget-size-large" name="widget_size" value="1"
               class="form-radio form-boolean form-boolean--type-radio select-widget-size"
               {{ ($widget_size == '1') ? 'checked' : '' }}>
-            <label for="widget-size-large" class="form-item__label">Oversize</label>
+            <label for="widget-size-large" class="form-item__label" style="margin-left: 0.5%;">Oversize</label>
           </div>
         </div>
       </div>
@@ -317,14 +311,14 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-1" name="icon_type" value="aioa-icon-type-1" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-1') ? 'checked' : '' }}>
                   <label for="edit-type-1" class="icon-label">
-                    <img src="{{ asset('images/aioa-icon-type-1.svg') }}" width="65" height="65" />
+                    <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-1.svg') }}" width="65" height="65" />
                     <span class="visually-hidden">Type 1</span>
                   </label>
                 </div>
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-2" name="icon_type" value="aioa-icon-type-2" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-2') ? 'checked' : '' }}>
                   <label for="edit-type-2" class="icon-label">
-                    <img src="{{ asset('images/aioa-icon-type-2.svg') }}"
+                    <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-2.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 2</span>
                   </label>
@@ -332,7 +326,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-3" name="icon_type" value="aioa-icon-type-3" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-3') ? 'checked' : '' }}>
                   <label for="edit-type-3" class="icon-label">
-                    <img src="{{ asset('images/aioa-icon-type-3.svg') }}"
+                    <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-3.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 3</span>
                   </label>
@@ -340,7 +334,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-4" name="icon_type" value="aioa-icon-type-4" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-4') ? 'checked' : '' }}>
                     <label for="edit-type-4" class="icon-label">
-                      <img src="{{ asset('images/aioa-icon-type-4.svg') }}"
+                      <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-4.svg') }}"
                            width="65" height="65" />
                       <span class="visually-hidden">Type 4</span>
                     </label>
@@ -348,7 +342,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-5" name="icon_type" value="aioa-icon-type-5" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-5') ? 'checked' : '' }}>
                     <label for="edit-type-5" class="icon-label">
-                      <img src="{{ asset('images/aioa-icon-type-5.svg') }}"
+                      <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-5.svg') }}"
                            width="65" height="65" />
                       <span class="visually-hidden">Type 5</span>
                     </label>
@@ -356,7 +350,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-6" name="icon_type" value="aioa-icon-type-6" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-6') ? 'checked' : '' }}>
                     <label for="edit-type-6" class="icon-label">
-                      <img src="{{ asset('images/aioa-icon-type-6.svg') }}"
+                      <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-6.svg') }}"
                            width="65" height="65" />
                       <span class="visually-hidden">Type 6</span>
                     </label>
@@ -364,7 +358,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-7" name="icon_type" value="aioa-icon-type-7" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-7') ? 'checked' : '' }}>
                     <label for="edit-type-7" class="icon-label">
-                      <img src="{{ asset('images/aioa-icon-type-7.svg') }}"
+                      <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-7.svg') }}"
                            width="65" height="65" />
                       <span class="visually-hidden">Type 7</span>
                     </label>
@@ -372,7 +366,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-8" name="icon_type" value="aioa-icon-type-8" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-8') ? 'checked' : '' }}>
                     <label for="edit-type-8" class="icon-label">
-                      <img src="{{ asset('images/aioa-icon-type-8.svg') }}"
+                      <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-8.svg') }}"
                            width="65" height="65" />
                       <span class="visually-hidden">Type 8</span>
                     </label>
@@ -380,7 +374,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-9" name="icon_type" value="aioa-icon-type-9" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-9') ? 'checked' : '' }}>
                     <label for="edit-type-9" class="icon-label">
-                      <img src="{{ asset('images/aioa-icon-type-9.svg') }}"
+                      <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-9.svg') }}"
                            width="65" height="65" />
                       <span class="visually-hidden">Type 9</span>
                     </label>
@@ -388,7 +382,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-10" name="icon_type" value="aioa-icon-type-10" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-10') ? 'checked' : '' }}>
                     <label for="edit-type-10" class="icon-label">
-                      <img src="{{ asset('images/aioa-icon-type-10.svg') }}"
+                      <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-10.svg') }}"
                            width="65" height="65" />
                       <span class="visually-hidden">Type 10</span>
                     </label>
@@ -396,7 +390,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-11" name="icon_type" value="aioa-icon-type-11" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-11') ? 'checked' : '' }}>
                   <label for="edit-type-11" class="icon-label">
-                    <img src="{{ asset('images/aioa-icon-type-11.svg') }}"
+                    <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-11.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 11</span>
                   </label>
@@ -404,7 +398,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-12" name="icon_type" value="aioa-icon-type-12" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-12') ? 'checked' : '' }}>
                   <label for="edit-type-12" class="icon-label">
-                    <img src="{{ asset('images/aioa-icon-type-12.svg') }}"
+                    <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-12.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 12</span>
                   </label>
@@ -412,7 +406,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-13" name="icon_type" value="aioa-icon-type-13" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-13') ? 'checked' : '' }}>
                   <label for="edit-type-13" class="icon-label">
-                    <img src="{{ asset('images/aioa-icon-type-13.svg') }}"
+                    <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-13.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 13</span>
                   </label>
@@ -420,7 +414,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-14" name="icon_type" value="aioa-icon-type-14" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-14') ? 'checked' : '' }}>
                   <label for="edit-type-14" class="icon-label">
-                    <img src="{{ asset('images/aioa-icon-type-14.svg') }}"
+                    <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-14.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 14</span>
                   </label>
@@ -428,7 +422,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-15" name="icon_type" value="aioa-icon-type-15" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-15') ? 'checked' : '' }}>
                   <label for="edit-type-15" class="icon-label">
-                    <img src="{{ asset('images/aioa-icon-type-15.svg') }}"
+                    <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-15.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 15</span>
                   </label>
@@ -436,7 +430,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-16" name="icon_type" value="aioa-icon-type-16" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-16') ? 'checked' : '' }}>
                   <label for="edit-type-16" class="icon-label">
-                    <img src="{{ asset('images/aioa-icon-type-16.svg') }}"
+                    <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-16.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 16</span>
                   </label>
@@ -444,7 +438,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-17" name="icon_type" value="aioa-icon-type-17" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-17') ? 'checked' : '' }}>
                   <label for="edit-type-17" class="icon-label">
-                    <img src="{{ asset('images/aioa-icon-type-17.svg') }}"
+                    <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-17.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 17</span>
                   </label>
@@ -452,7 +446,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-18" name="icon_type" value="aioa-icon-type-18" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-18') ? 'checked' : '' }}>
                   <label for="edit-type-18" class="icon-label">
-                    <img src="{{ asset('images/aioa-icon-type-18.svg') }}"
+                    <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-18.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 18</span>
                   </label>
@@ -460,7 +454,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-19" name="icon_type" value="aioa-icon-type-19" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-19') ? 'checked' : '' }}>
                   <label for="edit-type-19" class="icon-label">
-                    <img src="{{ asset('images/aioa-icon-type-19.svg') }}"
+                    <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-19.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 19</span>
                   </label>
@@ -468,7 +462,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-20" name="icon_type" value="aioa-icon-type-20" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-20') ? 'checked' : '' }}>
                   <label for="edit-type-20" class="icon-label">
-                    <img src="{{ asset('images/aioa-icon-type-20.svg') }}"
+                    <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-20.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 20</span>
                   </label>
@@ -476,7 +470,7 @@
                 <div class="col-auto mb-30">
                   <input type="radio" id="edit-type-21" name="icon_type" value="aioa-icon-type-21" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-21') ? 'checked' : '' }}>
                   <label for="edit-type-21" class="icon-label">
-                    <img src="{{ asset('images/aioa-icon-type-21.svg') }}"
+                    <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-21.svg') }}"
                          width="65" height="65" />
                     <span class="visually-hidden">Type 21</span>
                   </label>
@@ -484,14 +478,14 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-22" name="icon_type" value="aioa-icon-type-22" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-22') ? 'checked' : '' }}>
                     <label for="edit-type-22" class="icon-label">
-                        <img src="{{ asset('images/aioa-icon-type-22.svg') }}" width="65" height="65" />
+                        <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-22.svg') }}" width="65" height="65" />
                         <span class="visually-hidden">Type 22</span>
                     </label>
                 </div>
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-23" name="icon_type" value="aioa-icon-type-23" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-23') ? 'checked' : '' }}>
                     <label for="edit-type-23" class="icon-label">
-                        <img src="{{ asset('images/aioa-icon-type-23.svg') }}" width="65" height="65" />
+                        <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-23.svg') }}" width="65" height="65" />
                         <span class="visually-hidden">Type 23</span>
                     </label>
                 </div>
@@ -499,7 +493,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-24" name="icon_type" value="aioa-icon-type-24" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-24') ? 'checked' : '' }}>
                     <label for="edit-type-24" class="icon-label">
-                        <img src="{{ asset('images/aioa-icon-type-24.svg') }}" width="65" height="65" />
+                        <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-24.svg') }}" width="65" height="65" />
                         <span class="visually-hidden">Type 24</span>
                     </label>
                 </div>
@@ -507,7 +501,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-25" name="icon_type" value="aioa-icon-type-25" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-25') ? 'checked' : '' }}>
                     <label for="edit-type-25" class="icon-label">
-                        <img src="{{ asset('images/aioa-icon-type-25.svg') }}" width="65" height="65" />
+                        <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-25.svg') }}" width="65" height="65" />
                         <span class="visually-hidden">Type 25</span>
                     </label>
                 </div>
@@ -515,7 +509,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-26" name="icon_type" value="aioa-icon-type-26" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-26') ? 'checked' : '' }}>
                     <label for="edit-type-26" class="icon-label">
-                        <img src="{{ asset('images/aioa-icon-type-26.svg') }}" width="65" height="65" />
+                        <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-26.svg') }}" width="65" height="65" />
                         <span class="visually-hidden">Type 26</span>
                     </label>
                 </div>
@@ -523,7 +517,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-27" name="icon_type" value="aioa-icon-type-27" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-27') ? 'checked' : '' }}>
                     <label for="edit-type-27" class="icon-label">
-                        <img src="{{ asset('images/aioa-icon-type-27.svg') }}" width="65" height="65" />
+                        <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-27.svg') }}" width="65" height="65" />
                         <span class="visually-hidden">Type 27</span>
                     </label>
                 </div>
@@ -531,7 +525,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-28" name="icon_type" value="aioa-icon-type-28" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-28') ? 'checked' : '' }}>
                     <label for="edit-type-28" class="icon-label">
-                        <img src="{{ asset('images/aioa-icon-type-28.svg') }}" width="65" height="65" />
+                        <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-28.svg') }}" width="65" height="65" />
                         <span class="visually-hidden">Type 28</span>
                     </label>
                 </div>
@@ -539,7 +533,7 @@
                 <div class="col-auto mb-30">
                     <input type="radio" id="edit-type-29" name="icon_type" value="aioa-icon-type-29" class="input-hidden icon_type" {{ ($icon_type == 'aioa-icon-type-29') ? 'checked' : '' }}>
                     <label for="edit-type-29" class="icon-label">
-                        <img src="{{ asset('images/aioa-icon-type-29.svg') }}" width="65" height="65" />
+                        <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-29.svg') }}" width="65" height="65" />
                         <span class="visually-hidden">Type 29</span>
                     </label>
                 </div>
@@ -557,13 +551,13 @@
                 <div class="form-radio-item">
                   <input data-drupal-selector="edit-is-widget-custom-size-0" type="radio" id="edit-is-widget-custom-size-0" name="is_widget_custom_size"
                          value="0" class="form-radio form-boolean form-boolean--type-radio select-widget_custom_size" {{ $is_widget_custom_size == '0' ? 'checked' : '' }}>
-                  <label for="edit-is-widget-custom-size-0" class="form-item__label option">Fixed Icon Size</label>
+                  <label for="edit-is-widget-custom-size-0" class="form-item__label option" style="margin-left: 0.5%;">Fixed Icon Size</label>
                 </div>
                 <!-- Custom Icon Size Option -->
                 <div class="form-radio-item">
                   <input data-drupal-selector="edit-is-widget-custom-size-1" type="radio" id="edit-is-widget-custom-size-1" name="is_widget_custom_size"
                          value="1" class="form-radio form-boolean form-boolean--type-radio select-widget_custom_size" {{ $is_widget_custom_size == '1' ? 'checked' : '' }}>
-                  <label for="edit-is-widget-custom-size-1" class="form-item__label option">Custom Icon Size</label>
+                  <label for="edit-is-widget-custom-size-1" class="form-item__label option" style="margin-left: 0.5%;">Custom Icon Size</label>
                 </div>
               </div>
             </div>
@@ -590,7 +584,7 @@
               <div class="col-auto mb-30">
                 <input type="radio" id="edit-size-big" name="icon_size" value="aioa-big-icon" class="input-hidden aioa-iconsize">
                 <label for="edit-size-big" class="icon-label">
-                  <img src="{{ asset('images/aioa-icon-type-1.svg') }}"
+                  <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-1.svg') }}"
                        width="75" height="75" style="margin: auto" class="iconimg" />
                   <span class="visually-hidden">Big</span>
                 </label>
@@ -598,7 +592,7 @@
               <div class="col-auto mb-30">
                 <input type="radio" id="edit-size-medium" name="icon_size" value="aioa-medium-icon" class="input-hidden aioa-iconsize">
                 <label for="edit-size-medium" class="icon-label">
-                  <img src="{{ asset('images/aioa-icon-type-1.svg') }}"
+                  <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-1.svg') }}"
                        width="65" height="65" style="margin: auto" class="iconimg" />
                   <span class="visually-hidden">Medium</span>
                 </label>
@@ -606,7 +600,7 @@
               <div class="col-auto mb-30">
                 <input type="radio" id="edit-size-default" name="icon_size" value="aioa-default-icon" class="input-hidden aioa-iconsize">
                 <label for="edit-size-default" class="icon-label">
-                  <img src="{{ asset('images/aioa-icon-type-1.svg') }}"
+                  <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-1.svg') }}"
                        width="55" height="55" style="margin: auto" class="iconimg" />
                   <span class="visually-hidden">Default</span>
                 </label>
@@ -614,7 +608,7 @@
               <div class="col-auto mb-30">
                 <input type="radio" id="edit-size-small" name="icon_size" value="aioa-small-icon" class="input-hidden aioa-iconsize">
                 <label for="edit-size-small" class="icon-label">
-                  <img src="{{ asset('images/aioa-icon-type-1.svg') }}"
+                  <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-1.svg') }}"
                        width="45" height="45" style="margin: auto" class="iconimg" />
                   <span class="visually-hidden">Small</span>
                 </label>
@@ -622,7 +616,7 @@
               <div class="col-auto mb-30">
                 <input type="radio" id="edit-size-extra-small" name="icon_size" value="aioa-extra-small-icon" class="input-hidden aioa-iconsize">
                 <label for="edit-size-extra-small" class="icon-label">
-                  <img src="{{ asset('images/aioa-icon-type-1.svg') }}"
+                  <img src="{{ asset('assets/allinoneaccessibility/images/aioa-icon-type-1.svg') }}"
                        width="35" height="35" style="margin: auto" class="iconimg" />
                   <span class="visually-hidden">Extra Small</span>
                 </label>
@@ -633,7 +627,7 @@
 
       <!-- Submit Button -->
       <div class="form-group">
-        <button type="submit" class="btn btn-primary aioa-btn">Save Changes</button>
+          <button type="submit" class="btn btn-primary aioa-btn">Save Changes</button>
       </div>
     </form>
   </div>
@@ -641,9 +635,6 @@
 <div id="loader">
     <div class="spinner"></div>
 </div>
-<script src="{{ asset('js/allinoneaccessibility.js') }}"></script>
+<script src="{{ asset('assets/allinoneaccessibility/js/allinoneaccessibility.js') }}"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</body>
-</html>
-
 @endsection

@@ -22,11 +22,11 @@ class AllInOneAccessibility extends Tags
         $domain = $_SERVER['HTTP_HOST'] ?? '';
         $domainBase64 = base64_encode($domain);
         // Widget settings
-        $color = '#420083';
+        $color = '420083';
         $token = '';
         $position = 'bottom_right';
         $icon_type = 'aioa-icon-type-1';
-        $icon_size = 'aioa-medium-icon';
+        $icon_size = 'aioa-default-icon';
         // Call API
         $apiUrl = 'https://ada.skynettechnologies.us/api/widget-settings';
         $ch = curl_init($apiUrl);

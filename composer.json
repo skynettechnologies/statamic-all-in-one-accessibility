@@ -16,7 +16,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Skynettechnologies\\AllInOneAccessibility\\": "src"
+            "Skynettechnologies\\AllInOneAccessibility\\": "src/"
         }
     },
     "authors": [
@@ -35,7 +35,7 @@
     },
     "extra": {
         "statamic": {
-            "name": "All In One Accessibility",
+            "name": "All in One Accessibility",
             "description": "Quick Web Accessibility Implementation with All In One Accessibility!"
         },
         "laravel": {

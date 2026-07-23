@@ -3,7 +3,7 @@
 namespace Skynettechnologies\AllInOneAccessibility;
 
 use Dryven\Faviconator\Faviconator;
-use Skynettechnologies\Allinoneaccessibility\Blueprint\Formulus;
+use Skynettechnologies\AllInOneAccessibility\Blueprint\Formulus;
 use Illuminate\Support\Collection;
 use Statamic\Facades\File;
 use Statamic\Facades\YAML;

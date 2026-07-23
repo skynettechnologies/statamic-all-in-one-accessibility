@@ -1,4 +1,6 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
 use Skynettechnologies\AllInOneAccessibility\Http\Controllers\SettingsController;
 
 Route::middleware(['web', 'cp'])->prefix('cp/settings')->group(function () {
